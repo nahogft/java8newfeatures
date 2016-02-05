@@ -7,7 +7,11 @@ import org.gft.learning.java8newfeatures.Annotations.ServiceDuration;
 import org.springframework.beans.factory.annotation.Configurable;
 
 @Configurable
-public class CompletableFuturesService extends FutureAbstract  {
+public class LongComputationCompletableFuturesService extends FutureAbstract  {
+	@ServiceDuration
+	protected void execute() {
+		super.execute();
+	}
 	
 	@Override
 	protected Future<Integer> getLongComputation() {
@@ -16,7 +20,7 @@ public class CompletableFuturesService extends FutureAbstract  {
 	
 	
 	@ServiceDuration
-	protected void testAnnotation() {
+	public void testAnnotation() {
 		System.out.println("Testing annotation");
 	}
 

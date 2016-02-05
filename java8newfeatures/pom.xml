@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.gft.learning</groupId>
-	<artifactId>java8newfeaturesold</artifactId>
+	<artifactId>java8newfeatures</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
 		<spring.version>4.2.4.RELEASE</spring.version>
@@ -67,45 +67,6 @@
 
 	<build>
 		<plugins>
-
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>aspectj-maven-plugin</artifactId>
-				<version>1.8</version> <!-- AspectJ weaver plugin 7 is for java 8 (version 1.6 is for java 7) -->
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-					<complianceLevel>1.8</complianceLevel>
-					<Xlint>ignore</Xlint>
-					<verbose>true</verbose>
-					<forceAjcCompile>true</forceAjcCompile>
-					<showWeaveInfo>true</showWeaveInfo>
-					<!-- the aspect libraries to use for build time weaving -->
-					<aspectLibraries>
-						<aspectLibrary>
-							<groupId>org.springframework</groupId>
-							<artifactId>spring-aspects</artifactId>
-						</aspectLibrary>
-					</aspectLibraries>
-                     <sources>
-                            <source>
-                                <basedir>src/main/java</basedir>
-<!--                                 <includes> -->
-<!--                                     <include>**</include> -->
-<!--                                 </includes> -->
-                            </source>
-                        </sources>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>process-sources</phase>
-						<goals>
-							<goal>compile</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.5</version>
@@ -114,22 +75,7 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 				<artifactId>exec-maven-plugin</artifactId> -->
-<!-- 				<version>1.4.0</version> -->
-<!-- 				<configuration> -->
-<!-- 					<source>1.8</source> -->
-<!-- 					<target>1.8</target> -->
- <!-- 					<argLine>-javaagent:${user.home}/.m2/repository/org/springframework/spring-instrument/${spring.version}/spring-instrument-${spring.version}.jar</argLine> --> 
-<!-- 					<argLine>-javaagent:C:\Users\naho\.m2\repository\org\springframework\spring-instrument\4.2.4.RELEASE\spring-instrument-4.2.4.RELEASE.jar</argLine> -->
-
-<!-- 				</configuration> -->
-<!-- 			</plugin> -->
-
 		</plugins>
-
 	</build>
 
 

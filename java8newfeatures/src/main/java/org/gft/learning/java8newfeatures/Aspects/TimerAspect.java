@@ -5,11 +5,12 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.gft.learning.java8newfeatures.Annotations.ServiceDuration;
 
 @Aspect
 public class TimerAspect {
-	@Around("execution(@org.gft.learning.java8newfeatures.Annotations.ServiceDuration * *(..))")
-	public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
+	@Around("execution(@org.gft.learning.java8newfeatures.Annotations.ServiceDuration * *(..)) && @annotation(serviceDuration)")
+	public Object around(ProceedingJoinPoint joinPoint, ServiceDuration serviceDuration) throws Throwable {
 		long startTime = System.currentTimeMillis();
 
 		Object result = joinPoint.proceed();
