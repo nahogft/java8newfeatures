@@ -1,6 +1,6 @@
 package org.gft.learning.java8newfeatures.concurrency;
 
-import org.gft.learning.java8newfeatures.concurrency.findbestprices.FindBestPricesParallelTasksService;
+import org.gft.learning.java8newfeatures.exercise4.concurrency.findbestprices.FindBestPricesParallelTasksService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

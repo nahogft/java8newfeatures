@@ -1,4 +1,4 @@
-package org.gft.learning.java8newfeatures.concurrency.findbestprices;
+package org.gft.learning.java8newfeatures.exercise4.concurrency.findbestprices;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

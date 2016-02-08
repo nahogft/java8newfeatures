@@ -1,4 +1,4 @@
-package org.gft.learning.java8newfeatures.concurrency.findbestprices;
+package org.gft.learning.java8newfeatures.exercise4.concurrency.findbestprices;
 
 import java.util.List;
 import java.util.function.Function;

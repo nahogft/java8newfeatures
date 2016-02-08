@@ -1,4 +1,4 @@
-package org.gft.learning.java8newfeatures.concurrency.findbestprices;
+package org.gft.learning.java8newfeatures.exercise4.concurrency.findbestprices;
 
 import java.util.List;
 import java.util.function.Function;
@@ -7,6 +7,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
+ * Exercise 4: Practical example: (sequential, parallel, asynchronous)<br>
+ * 
  * FindBestPrices application that compares the usage of sequential, parallel
  * and asynchronous.
  * 
@@ -50,8 +52,8 @@ public class FindBestPricesApplication {
 	}
 
 	/**
-	 * But adding even more books doesn't make it asynchronous faster! -> uses the same
-	 * thread pool than parallel -> 4!!! <br>
+	 * But adding even more books doesn't make it asynchronous faster! -> uses
+	 * the same thread pool than parallel -> 4!!! <br>
 	 * --> Use Custom Executor to customize thread pool
 	 */
 	private void severalBooks(int i) {
