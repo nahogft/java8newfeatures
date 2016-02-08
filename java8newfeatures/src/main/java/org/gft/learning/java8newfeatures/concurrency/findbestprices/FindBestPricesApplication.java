@@ -2,7 +2,6 @@ package org.gft.learning.java8newfeatures.concurrency.findbestprices;
 
 import java.util.List;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
  *
  */
 public class FindBestPricesApplication {
-
 	@Autowired
-	private FindBestPricesSequentialTasksService findBestPricesSequentialTasksService;
-	@Autowired
-	private FindBestPricesParallelTasksService findBestPricesParallelTasksService;
-	@Autowired
-	private FindBestPricesAsynchronousTasksService findBestPricesAsynchronousTasksService;
-	@Autowired
-	private FindBestPricesAsynchronousCustomExecutorTasksService findBestPricesAsynchronousCustomExecutorTasksService;
+	private FindBestPricesTasks findBestPricesTasks;
+	// @Autowired
+	// private FindBestPricesSequentialTasksService
+	// findBestPricesSequentialTasksService;
 	@Autowired
 	private CreateListOfBooks createListOfBooks;
 
@@ -35,16 +30,19 @@ public class FindBestPricesApplication {
 	}
 
 	/**
-	 * Simple example with four Books. Our machine has exactly four cores, so
-	 * parallel is working better than asynchronous because it is using one
-	 * thread per core and no thread have to wait
+	 * Simple example with four Books. <br>
+	 * Parallel works better than sequential.<br>
+	 * Our machine has exactly four cores, so parallel is working better than
+	 * asynchronous because it is using one thread per core and no thread have
+	 * to wait. <br>
+	 * 
 	 */
 	private void fourBooks() {
 		comparingComputations(createListOfBooks.apply(4));
 	}
 
 	/**
-	 * Adding a new Book makes a difference and shows that Asynchronous is
+	 * Adding a new Book makes a difference and shows that asynchronous is
 	 * getting more advantageous
 	 */
 	private void fiveBooks() {
@@ -52,7 +50,7 @@ public class FindBestPricesApplication {
 	}
 
 	/**
-	 * Adding more books doesn't make it asynchronous faster! -> uses the same
+	 * But adding even more books doesn't make it asynchronous faster! -> uses the same
 	 * thread pool than parallel -> 4!!! <br>
 	 * --> Use Custom Executor to customize thread pool
 	 */
@@ -63,28 +61,30 @@ public class FindBestPricesApplication {
 
 	/**
 	 * Using a custom Executor to customize thread pool (example 100) makes a
-	 * difference
+	 * difference when using asynchronous
 	 */
 
 	private void severalBooksWithCustomExecutor(int i) {
-		computation(createListOfBooks.apply(i), findBestPricesAsynchronousCustomExecutorTasksService);
+		computation(createListOfBooks.apply(i), findBestPricesTasks::customAsynchronous);
 	}
 
 	private void comparingComputations(List<Book> books) {
-		computation(books, findBestPricesSequentialTasksService);
-		// Below is a lambda to pass function that does the same as above
-		//computation(books, (booksList) -> booksList.stream().map(book -> book.toString()).collect(Collectors.toList()));
-		computation(books, findBestPricesParallelTasksService);
-		computation(books, findBestPricesAsynchronousTasksService);
+		computation(books, findBestPricesTasks::sequential);
+		// computation(books, findBestPricesSequentialTasksService);
+		// Below is an example to pass function as a lambda that does the same
+		// as above
+		// computation(books, (booksList) -> booksList.stream().map(book ->
+		// book.toString()).collect(Collectors.toList()));
+		// Below is an example to pass function as a Function implementing class
+		// that does the same as above
+		// computation(books, findBestPricesSequentialTasksService);
+		computation(books, findBestPricesTasks::parallel);
+		computation(books, findBestPricesTasks::asynchronous);
 
 	}
 
 	private void computation(List<Book> books, Function<List<Book>, List<String>> findPricesFunction) {
 		List<String> bestPrices = findPricesFunction.apply(books);
-		printListOfBooks(bestPrices);
-	}
-
-	private void printListOfBooks(List<String> bestPrices) {
 		Logger.getLogger(this.getClass()).info(bestPrices);
 	}
 }
