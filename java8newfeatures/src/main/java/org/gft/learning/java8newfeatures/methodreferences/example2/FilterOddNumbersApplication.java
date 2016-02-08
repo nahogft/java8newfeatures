@@ -1,4 +1,4 @@
-package org.gft.learning.java8newfeatures.methodreferences;
+package org.gft.learning.java8newfeatures.methodreferences.example2;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -10,10 +10,8 @@ import java.util.stream.IntStream;
  */
 public class FilterOddNumbersApplication {
 	public void run() {
-
 		lambdaExpression();
-
-		methodReference();		
+		methodReference();	
 	}
 
 	/**

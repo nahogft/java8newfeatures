@@ -10,8 +10,6 @@
 	<context:component-scan base-package="org.gft.learning.java8newfeatures" />
 	<bean id="timerAspect" class="org.gft.learning.java8newfeatures.Aspects.TimerAspect" />
 
-	<!-- Method references vs lambda example -->
-	<bean id="filterOddNumbersApplication" class="org.gft.learning.java8newfeatures.methodreferences.FilterOddNumbersApplication" />
 	<!-- Find Best Prices example -->
 	<bean id="futuresService" class="org.gft.learning.java8newfeatures.concurrency.LongComputationFuturesService" />
 	<bean id="completableFuturesService" class="org.gft.learning.java8newfeatures.concurrency.LongComputationCompletableFuturesService" />
