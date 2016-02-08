@@ -22,7 +22,7 @@ public class FindBestPricesApplication {
 	@Autowired
 	private CreateListOfBooks createListOfBooks;
 
-	public void execute() {
+	public void run() {
 		fourBooks();
 		fiveBooks();
 		severalBooks(9);

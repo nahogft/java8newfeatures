@@ -8,7 +8,7 @@ public class FindBestPricesMain {
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		FindBestPricesApplication application = (FindBestPricesApplication) context.getBean("findBestPricesApplication");
-		application.execute();
+		application.run();
 	}
 
 }
