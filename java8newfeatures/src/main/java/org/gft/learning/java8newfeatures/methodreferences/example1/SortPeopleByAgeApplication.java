@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Example 1 to compare Lambda syntax vs Method references syntax
+ * Exercise 1 to compare Lambda syntax vs Method references syntax
  * 
  * @author naho
  *
