@@ -11,6 +11,7 @@
 
 	<bean id="futuresService" class="org.gft.learning.java8newfeatures.concurrency.LongComputationFuturesService" />
 	<bean id="completableFuturesService" class="org.gft.learning.java8newfeatures.concurrency.LongComputationCompletableFuturesService" />
+<bean id="findBestPricesApplication" class="org.gft.learning.java8newfeatures.concurrency.findbestprices.FindBestPricesApplication" />
 	<bean id="parallelTasksService" class="org.gft.learning.java8newfeatures.concurrency.findbestprices.FindBestPricesParallelTasksService" />
 	<bean id="sequentialTasksService" class="org.gft.learning.java8newfeatures.concurrency.findbestprices.FindBestPricesSequentialTasksService" />
 	<bean id="asynchronousTasksService" class="org.gft.learning.java8newfeatures.concurrency.findbestprices.FindBestPricesAsynchronousTasksService" />

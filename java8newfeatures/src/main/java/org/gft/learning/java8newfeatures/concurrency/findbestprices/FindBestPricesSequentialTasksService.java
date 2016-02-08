@@ -5,11 +5,11 @@ import java.util.stream.Collectors;
 
 import org.gft.learning.java8newfeatures.Annotations.ServiceDuration;
 
-public class FindBestPricesParallelTasksService extends FindBestPricesService {
+public class FindBestPricesSequentialTasksService extends FindBestPricesService{
 
 	@ServiceDuration
 	public List<String> execute(List<Book> books) {
-		return books.parallelStream().map(book -> book.toString()).collect(Collectors.toList());
+		return books.stream().map(book -> book.toString()).collect(Collectors.toList());
 	}
 
 }
