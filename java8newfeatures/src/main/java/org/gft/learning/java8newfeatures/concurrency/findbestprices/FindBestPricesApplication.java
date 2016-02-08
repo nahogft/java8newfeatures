@@ -2,6 +2,7 @@ package org.gft.learning.java8newfeatures.concurrency.findbestprices;
 
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,6 +72,8 @@ public class FindBestPricesApplication {
 
 	private void comparingComputations(List<Book> books) {
 		computation(books, findBestPricesSequentialTasksService);
+		// Below is a lambda to pass function that does the same as above
+		//computation(books, (booksList) -> booksList.stream().map(book -> book.toString()).collect(Collectors.toList()));
 		computation(books, findBestPricesParallelTasksService);
 		computation(books, findBestPricesAsynchronousTasksService);
 
