@@ -1,4 +1,4 @@
-package org.gft.learning.java8newfeatures.methodreferences.example1;
+package org.gft.learning.java8newfeatures.exercise1.methodreferences.solutions;
 
 import java.time.LocalDate;
 

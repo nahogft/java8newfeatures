@@ -1,4 +1,4 @@
-package org.gft.learning.java8newfeatures.defaultmethods.templates;
+package org.gft.learning.java8newfeatures.exercise2.defaultmethods.solutions;
 
 public class CustomGreeting implements Greeting {
 

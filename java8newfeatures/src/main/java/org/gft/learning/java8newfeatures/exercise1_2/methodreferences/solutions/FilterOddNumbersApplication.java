@@ -1,4 +1,4 @@
-package org.gft.learning.java8newfeatures.methodreferences.example2;
+package org.gft.learning.java8newfeatures.exercise1_2.methodreferences.solutions;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
