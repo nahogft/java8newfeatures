@@ -3,18 +3,20 @@
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
 
-	<aop:aspectj-autoproxy />
-<!-- 	<context:spring-configured /> -->
-<!-- 	<context:load-time-weaver /> -->
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+	<!-- <context:spring-configured /> -->
+	<!-- <context:load-time-weaver /> -->
 
 	<context:component-scan base-package="org.gft.learning.java8newfeatures" />
 
 	<bean id="futuresService" class="org.gft.learning.java8newfeatures.concurrency.LongComputationFuturesService" />
 	<bean id="completableFuturesService" class="org.gft.learning.java8newfeatures.concurrency.LongComputationCompletableFuturesService" />
-<bean id="findBestPricesApplication" class="org.gft.learning.java8newfeatures.concurrency.findbestprices.FindBestPricesApplication" />
+	<bean id="findBestPricesApplication" class="org.gft.learning.java8newfeatures.concurrency.findbestprices.FindBestPricesApplication" />
 	<bean id="parallelTasksService" class="org.gft.learning.java8newfeatures.concurrency.findbestprices.FindBestPricesParallelTasksService" />
 	<bean id="sequentialTasksService" class="org.gft.learning.java8newfeatures.concurrency.findbestprices.FindBestPricesSequentialTasksService" />
 	<bean id="asynchronousTasksService" class="org.gft.learning.java8newfeatures.concurrency.findbestprices.FindBestPricesAsynchronousTasksService" />
+	<bean id="asynchronousCustomExecutorTasksService" class="org.gft.learning.java8newfeatures.concurrency.findbestprices.FindBestPricesAsynchronousCustomExecutorTasksService" />
+	<bean id="createListOfBooks" class="org.gft.learning.java8newfeatures.concurrency.findbestprices.CreateListOfBooks" />
 
 	<bean id="timerAspect" class="org.gft.learning.java8newfeatures.Aspects.TimerAspect" />
 </beans>
